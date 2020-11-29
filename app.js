@@ -4,7 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var nodebb = require('./routes/nodebb');
-
+var cors = require('cors');
 var app = express();
 
 // view engine setup
@@ -16,6 +16,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
+app.use(cors());
 app.use('/', nodebb);
 
 // catch 404 and forward to error handler
